@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 
 public class Board extends JFrame {
     public Board() {
-        StringBuilder screen = new StringBuilder();
+        final StringBuilder[] screen = {new StringBuilder()};
+        final int[] result = new int[1];
 
         setTitle("Calculator");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -87,79 +88,136 @@ public class Board extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(1);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(1);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(2);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(2);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(3);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(3);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(4);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(4);
+                screenView.setText(String.valueOf(screen[0]));
             }
 
         });
         button5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(5);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(5);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(6);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(6);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(7);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(7);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(8);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(8);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
 
         button9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(9);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(9);
+                screenView.setText(String.valueOf(screen[0]));
             }
         });
+
         button0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen.append(0);
-                screenView.setText(String.valueOf(screen));
+                screen[0].append(0);
+                screenView.setText(String.valueOf(screen[0]));
+            }
+        });
+
+        button_plus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen[0].append(" + ");
+                screenView.setText(String.valueOf(screen[0]));
+            }
+        });
+
+        button_minus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen[0].append(" - ");
+                screenView.setText(String.valueOf(screen[0]));
+            }
+        });
+
+        button_division.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen[0].append(" / ");
+                screenView.setText(String.valueOf(screen[0]));
+            }
+        });
+
+        button_multi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen[0].append(" * ");
+                screenView.setText(String.valueOf(screen[0]));
+            }
+        });
+
+        button_equal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String[] values = String.valueOf(screen[0]).split(" ");
+                result[0] = Integer.parseInt(values[0]);
+                for(int i = 0; i < values.length; i++){
+                    if (values[i].equals("+")){
+                        result[0] += Integer.parseInt(values[i + 1]);
+                    }
+                    if (values[i].equals("*")){
+                        result[0] *= Integer.parseInt(values[i + 1]);
+                    }
+                    if (values[i].equals("-")){
+                        result[0] -= Integer.parseInt(values[i + 1]);
+                    }
+                    if (values[i].equals("/")){
+                        result[0] /= Integer.parseInt(values[i + 1]);
+                    }
+                }
+                screenView.setText(String.valueOf(result[0]));
+                screen[0] = new StringBuilder("");
             }
         });
         setVisible(true);
