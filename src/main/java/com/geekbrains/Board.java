@@ -7,13 +7,14 @@ import java.awt.event.ActionListener;
 
 public class Board extends JFrame {
     public Board() {
-        final String screen = new String();
+        StringBuilder screen = new StringBuilder();
 
         setTitle("Calculator");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(300, 300, 520, 638);
         setLayout(null);
         Font font = new Font("Arial", Font.BOLD, 32);
+
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
         JButton button3 = new JButton("3");
@@ -86,7 +87,79 @@ public class Board extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                screen += "1";
+                screen.append(1);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(2);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(3);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(4);
+                screenView.setText(String.valueOf(screen));
+            }
+
+        });
+        button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(5);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(6);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(7);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(8);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+
+        button9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(9);
+                screenView.setText(String.valueOf(screen));
+            }
+        });
+        button0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                screen.append(0);
+                screenView.setText(String.valueOf(screen));
             }
         });
         setVisible(true);
